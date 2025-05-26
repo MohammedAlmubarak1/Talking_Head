@@ -5,7 +5,7 @@ import DottedFace from "./Components/DottedFace";
 import SimliHeaderLogo from "./Components/Logo";
 import Navbar from "./Components/Navbar";
 import Image from "next/image";
-import Napoleon from "@/media/Napoleon.png";
+// Remove the import since we'll use the path directly in the Image component
 
 const Demo: React.FC = () => {
   const [showDottedFace, setShowDottedFace] = useState(true);
@@ -27,7 +27,13 @@ const Demo: React.FC = () => {
 
       <div className="absolute top-[32px] right-[32px]">
         <div className="rounded-full overflow-hidden">
-          <Image className="w-[50px] h-[50px]" src={Napoleon} alt="Napoleon" />
+          <Image 
+            className="w-[40px] h-[40px]" 
+            src="/Trump_2024_2022_Campaign_Logo.png" 
+            alt="Trump Campaign Logo" 
+            width={40} 
+            height={40}
+          />
         </div>
       </div>
       <div className="flex flex-col items-center gap-6 bg-effect15White p-6 pb-[40px] rounded-xl w-full">

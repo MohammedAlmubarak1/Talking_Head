@@ -1,6 +1,7 @@
 'use client';
 import { usePathname, useRouter } from 'next/navigation';
 import React from 'react';
+import Image from 'next/image';
 import cn from '@/app/utils/TailwindMergeAndClsx';
 
 interface Props {
@@ -17,8 +18,14 @@ const SimliHeaderLogo = ({ className, children }: Props) => {
   };
 
   return (
-    <div className={cn('fixed top-[32px] left-[32px] cursor-pointer font-bold text-white text-xl', className)} onClick={handleClick}>
-      Napolean Bonaparte Ai
+    <div className={cn('fixed top-[32px] left-[32px] cursor-pointer', className)} onClick={handleClick}>
+      <Image 
+        src="/Trump_2024_2022_Campaign_Logo.png" 
+        alt="Trump Campaign Logo"
+        width={450}
+        height={200}
+        className="rounded-full"
+      />
     </div>
   );
 };
