@@ -1,8 +1,6 @@
 'use client';
-import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 import React from 'react';
-import logo from '@/media/SimliLogoV2.svg';
 import cn from '@/app/utils/TailwindMergeAndClsx';
 
 interface Props {
@@ -15,13 +13,12 @@ const SimliHeaderLogo = ({ className, children }: Props) => {
   const pathname = usePathname();
 
   const handleClick = async () => {
-    console.log('Clicked Simli logo', pathname);
-    window.open('https://simli.com');
+    console.log('Clicked logo', pathname);
   };
 
   return (
-    <div className={cn('fixed top-[32px] left-[32px] cursor-pointer', className)} onClick={handleClick}>
-      <Image src={logo} className='Logo' alt='Simli logo' />
+    <div className={cn('fixed top-[32px] left-[32px] cursor-pointer font-bold text-white text-xl', className)} onClick={handleClick}>
+      Napolean Bonaparte Ai
     </div>
   );
 };

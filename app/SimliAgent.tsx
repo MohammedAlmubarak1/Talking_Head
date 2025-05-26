@@ -30,31 +30,17 @@ const SimliAgent: React.FC<SimliAgentProps> = ({ onStart, onClose }) => {
     // Set loading state
     setIsLoading(true);
 
-    // 1- Create a new simli avatar at https://app.simli.com/
-    // 2- Cutomize your agent and copy the code output
-    // 3- PASTE YOUR CODE OUTPUT FROM SIMLI BELOW 👇
-    /**********************************/
-
-    const response = await fetch("https://api.simli.ai/startE2ESession", {
-      method: "POST",
+    console.log("Welcome to my AI!");
+    const response = await fetch("https://api.simli.ai/session/8b5ad2aa-b2e3-4035-bbf4-5e8aa6f1327c/gAAAAABoNCZbjLgFF5TZsWcyg4c8McH-Rn5oLj0Z3kND3FPwjjLJPneMEJUjwEpxR6KdxKuImIer2NtSNM_rLkA9WriMYIC-eBEZVOq0NgVRF2wdoFUvB2FEWFi25CWeBNQXoUwRkonufy7axbylqVN2UgrTOvT4A8wXiP7bklNgH8y6W9k-8Tz7Ty4gdRcX8orW0dP7fGSlLh6N_-M28rY0DhFISDDMgPTzXNrgyJpyce84zevmgSwSBWqyfmqimg42ykBTQusj0pyK9WlRSgPM6H0WR5Kr--6CsGEFURj5TY5E5uFnplfQ258LmebkJxZpUPlsAVWjFbrJQbJW9zHO81eJ38nxj2rKDscTLedeLXCFXlDP96u_DYr-1kctyNjEu8Slb34_O1trPBOm7i5ksmPc1yh9VA==", {
+      method: "GET",
       headers: {
-        "Content-Type": "application/json",
+          "Content-Type": "application/json",
+          "Accept": "application/json",
       },
-      body: JSON.stringify({
-        apiKey: SIMLI_API_KEY,
-        faceId: "",
-        voiceId: "",
-        firstMessage: "",
-        systemPrompt: "",
-      }),
-    });
-
-    const data = await response.json();
-    const roomUrl = data.roomUrl;
-
-    /**********************************/
-    
-    // Print the API response 
+  })
+  
+  const data = await response.json();
+  const roomUrl = data.roomUrl; 
     console.log("API Response", data);
 
     // Create a new Daily call object
@@ -155,7 +141,7 @@ const SimliAgent: React.FC<SimliAgentProps> = ({ onStart, onClose }) => {
               <IconSparkleLoader className="h-[20px] animate-loader" />
             ) : (
               <span className="font-abc-repro-mono font-bold w-[164px]">
-                Test Interaction
+                Chat with me!
               </span>
             )}
           </button>
